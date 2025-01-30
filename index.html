@@ -9,31 +9,40 @@
 <body>
 
     <div class="game-container">
+        <div id="timer-container" class="hidden">
+            <div id="timer">15</div>
+        </div>
+
         <h1 id="titulo">Test de Resistencia de Dedos</h1>
         <p id="instrucciones">Utiliza los dedos índice y medio ✌🏼 para realizar pulsaciones repetidamente hasta que se acabe el tiempo.</p>
-        
-        <button id="start-btn">EMPEZAR</button>
 
+        <button id="start-btn">EMPEZAR</button>
         <div id="countdown" class="hidden">3</div>
 
-        <div id="game" class="hidden">
-            <div id="timer">15</div>
+        <div id="game">
             <div id="score">Pulsaciones: 0</div>
             <div class="buttons-container">
-                <button class="tap-btn" id="btn-left">🔵</button>
-                <button class="tap-btn" id="btn-right">🔵</button>
+                <button class="tap-btn" id="btn-left" disabled>🔵</button>
+                <button class="tap-btn" id="btn-right" disabled>🔵</button>
             </div>
         </div>
 
         <div id="time-up" class="hidden">¡TIEMPO!</div>
 
         <div id="result-container" class="hidden">
-            <input type="text" id="player-name" placeholder="Escribe tu nombre">
-            <button id="save-btn">GUARDAR</button>
+            <p id="final-score"></p>
+            <div class="input-container">
+                <input type="text" id="player-name" placeholder="Escribe tu nombre">
+                <button id="save-btn">GUARDAR</button>
+            </div>
             <a href="https://www.powerhands.es/catalogo/productos" target="_blank">
-                <button id="retry-btn">Mejora tu resultado aquí</button>
+                <button id="retry-btn">Mejora tus resultados aquí</button>
             </a>
         </div>
+
+        <footer>
+            <p id="footer-text">Este test está diseñado para fines lúdicos y orientativos. Los resultados no deben considerarse como datos médicos.</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
