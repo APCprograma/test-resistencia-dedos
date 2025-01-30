@@ -9,6 +9,7 @@ body {
     background: linear-gradient(to bottom, #0033cc, #000000);
     color: white;
     text-align: center;
+    flex-direction: column;
 }
 
 /* Contenedor principal */
@@ -20,23 +21,37 @@ body {
     max-width: 800px;
 }
 
-/* Título con efecto brillante en una sola línea */
+/* Estilo del título */
 h1 {
     font-size: 48px;
     text-shadow: 0px 0px 15px #00aaff, 0px 0px 25px #0055ff;
-    padding: 10px 30px;
-    margin-bottom: 10px;
-    white-space: nowrap; /* Evita que el título se divida en dos líneas */
 }
 
-/* Texto de instrucciones */
+/* Descripción */
 #instrucciones {
     font-size: 18px;
-    color: #dddddd;
     background: rgba(0, 102, 255, 0.6);
     padding: 10px 20px;
     border-radius: 10px;
     max-width: 500px;
+}
+
+/* Contenedor del temporizador */
+#timer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Contador de tiempo */
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px #ff9900;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 
 /* Botón de inicio */
@@ -49,8 +64,6 @@ h1 {
     border: 2px solid white;
     border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.1s, box-shadow 0.2s;
-    margin-top: 20px;
 }
 
 #start-btn:active {
@@ -58,115 +71,47 @@ h1 {
     box-shadow: 0px 0px 10px #00aaff;
 }
 
-/* Cuenta atrás */
-#countdown {
-    font-size: 70px;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px #00aaff, 0px 0px 20px #0055ff;
-}
-
-/* Contenedor del juego */
-#game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-/* Contador de tiempo */
-#timer {
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 102, 255, 0.7);
-    padding: 10px 20px;
-    border-radius: 10px;
-}
-
-/* Contador de pulsaciones */
-#score {
-    font-size: 28px;
-    margin-bottom: 20px;
-    padding: 15px 30px;
-    background: rgba(0, 102, 255, 0.7);
-    border-radius: 10px;
-}
-
-/* Botones de pulsación con efecto redondeado */
-.buttons-container {
-    display: flex;
-    gap: 50px;
-}
-
+/* Botones de pulsación */
 .tap-btn {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     font-size: 40px;
     border: none;
     border-radius: 50%;
     background: radial-gradient(circle, #0077ff, #0033cc);
-    color: white;
     box-shadow: 0px 0px 15px #00aaff;
     cursor: pointer;
-    position: relative;
-    overflow: hidden; /* Evita que la animación se desborde fuera del botón */
 }
 
-/* Efecto de pulsación */
-.tap-btn:active::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%; /* Hace que la animación sea completamente circular */
-    animation: pulseEffect 0.2s ease-out;
-}
-
-/* Animación de pulsación */
-@keyframes pulseEffect {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.3);
-        opacity: 0;
-    }
-}
-
-/* Animación de fin de juego */
-#time-up {
-    font-size: 70px;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px #ff0000, 0px 0px 20px #ff4444;
-}
-
-/* Resultados */
-#result-container {
+/* Contenedor de botones */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
     margin-top: 20px;
 }
 
-/* Input y botón de guardar */
+/* Cuadro de texto */
 #player-name {
-    padding: 14px;
-    font-size: 22px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
+    padding: 12px;
+    font-size: 20px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background: rgba(0, 102, 255, 0.6);
+    color: white;
+    text-align: center;
+    width: 250px;
 }
 
+/* Botón de guardar */
 #save-btn {
-    padding: 14px 30px;
-    font-size: 22px;
-    background: #0044ff;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
     color: white;
+    background: #0044ff;
     border: 2px solid white;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: transform 0.1s, box-shadow 0.2s;
 }
@@ -176,15 +121,16 @@ h1 {
     box-shadow: 0px 0px 10px #00aaff;
 }
 
-/* Botón "Mejora tu resultado aquí" con más espacio */
+/* Botón "Mejora tus resultados aquí" */
 #retry-btn {
-    margin-top: 20px;
-    padding: 14px 30px;
-    font-size: 22px;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: bold;
     background: #0044ff;
     color: white;
     border: 2px solid white;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     transition: transform 0.1s, box-shadow 0.2s;
 }
