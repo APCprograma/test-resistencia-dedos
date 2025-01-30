@@ -19,6 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let gameActive = false;
     let gameInterval;
 
+    // Asegurar que los botones de pulsación sean visibles desde el inicio
+    leftBtn.classList.remove("hidden");
+    rightBtn.classList.remove("hidden");
+    leftBtn.disabled = true;
+    rightBtn.disabled = true;
+
     // Iniciar cuenta atrás
     startBtn.addEventListener("click", () => {
         startBtn.classList.add("hidden");
@@ -40,11 +46,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para iniciar el juego
     function startGame() {
         gameActive = true;
-        gameEl.classList.remove("hidden");
         score = 0;
         scoreEl.textContent = "Pulsaciones: 0";
         timeLeft = 15;
         timerEl.textContent = timeLeft;
+        
+        leftBtn.disabled = false;
+        rightBtn.disabled = false; // Habilitar botones al iniciar
 
         gameInterval = setInterval(() => {
             timeLeft--;
@@ -69,25 +77,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Finalizar el juego correctamente
     function endGame() {
-        gameActive = false; // Bloquea las pulsaciones
+        gameActive = false; // Bloquear las pulsaciones
         leftBtn.disabled = true;
-        rightBtn.disabled = true;
+        rightBtn.disabled = true; // Deshabilitar botones pero sin ocultarlos
 
-        gameEl.classList.add("hidden");
         timeUpEl.classList.remove("hidden");
-
         setTimeout(() => {
             timeUpEl.classList.add("hidden");
             resultContainer.classList.remove("hidden");
             finalScoreEl.textContent = `Pulsaciones: ${score}`;
-        }, 4000);
+        }, 2000);
     }
 
     // Reiniciar el juego
     retryBtn.addEventListener("click", () => {
         resultContainer.classList.add("hidden");
         startBtn.classList.remove("hidden");
-        leftBtn.disabled = false;
-        rightBtn.disabled = false;
+        leftBtn.disabled = true;
+        rightBtn.disabled = true; // Volver a deshabilitar hasta que inicie
     });
 });
