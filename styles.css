@@ -140,6 +140,51 @@ h1 {
     box-shadow: 0px 0px 10px #00aaff;
 }
 
+/* Pie de página */
+#footer-text {
+    font-size: 14px;
+    opacity: 0.7;
+    text-align: center;
+    max-width: 90%;
+}
+
+/* 🔹 MEDIA QUERIES PARA ADAPTACIÓN A MÓVILES Y TABLETS */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+    #timer {
+        font-size: 32px;
+        padding: 8px 20px;
+    }
+    .tap-btn {
+        width: 130px;
+        height: 130px;
+        font-size: 30px;
+    }
+    .buttons-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+    #timer {
+        font-size: 24px;
+        padding: 6px 15px;
+    }
+    .tap-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 25px;
+    }
+    .buttons-container {
+        gap: 20px;
+    }
+}
+
 /* Ocultar elementos */
 .hidden {
     display: none;
