@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startBtn.classList.add("hidden");
         countdownEl.classList.remove("hidden");
         countdownEl.textContent = countdown;
-        
+
         let countdownInterval = setInterval(() => {
             countdown--;
             if (countdown > 0) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scoreEl.textContent = "Pulsaciones: 0";
         timeLeft = 15;
         timerEl.textContent = timeLeft;
-        
+
         leftBtn.disabled = false;
         rightBtn.disabled = false; // Habilitar botones al iniciar
 
@@ -88,6 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
             finalScoreEl.textContent = `Pulsaciones: ${score}`;
         }, 2000);
     }
+
+    // Guardar el nombre y mostrar confirmación
+    saveBtn.addEventListener("click", () => {
+        playerNameInput.value = ""; // Borra el texto del cuadro
+        document.getElementById("success-check").style.display = "inline"; // Muestra el icono de verificación
+
+        setTimeout(() => {
+            document.getElementById("success-check").style.display = "none"; // Oculta el icono después de 1.5s
+        }, 1500);
+    });
 
     // Reiniciar el juego
     retryBtn.addEventListener("click", () => {
