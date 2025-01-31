@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(to bottom, #0033cc, #000000);
     color: white;
     text-align: center;
@@ -23,17 +23,18 @@ body {
 
 /* Estilo del título */
 h1 {
-    font-size: 48px;
+    font-size: 6vw;
     text-shadow: 0px 0px 15px #00aaff, 0px 0px 25px #0055ff;
+    margin: 10px 0;
 }
 
 /* Descripción */
 #instrucciones {
-    font-size: 18px;
+    font-size: 4vw;
     background: rgba(0, 102, 255, 0.6);
     padding: 10px 20px;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 90%;
 }
 
 /* Contenedor del temporizador */
@@ -46,7 +47,7 @@ h1 {
 
 /* Contador de tiempo */
 #timer {
-    font-size: 48px;
+    font-size: 8vw;
     font-weight: bold;
     text-shadow: 0px 0px 15px #ffcc00, 0px 0px 25px #ff9900;
     padding: 10px 30px;
@@ -56,8 +57,8 @@ h1 {
 
 /* Botón de inicio */
 #start-btn {
-    padding: 20px 50px;
-    font-size: 24px;
+    padding: 5vw;
+    font-size: 5vw;
     font-weight: bold;
     color: white;
     background: #0044ff;
@@ -73,9 +74,9 @@ h1 {
 
 /* Botones de pulsación */
 .tap-btn {
-    width: 160px;
-    height: 160px;
-    font-size: 40px;
+    width: 20vw;
+    height: 20vw;
+    font-size: 6vw;
     border: none;
     border-radius: 50%;
     background: radial-gradient(circle, #0077ff, #0033cc);
@@ -87,20 +88,20 @@ h1 {
 .buttons-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
+    gap: 8vw;
+    margin-top: 4vw;
 }
 
 /* Estética del cuadro de texto */
 #player-name {
-    padding: 12px;
-    font-size: 20px;
+    padding: 3vw;
+    font-size: 4vw;
     border: 2px solid white;
     border-radius: 8px;
     background: rgba(0, 102, 255, 0.6);
     color: white;
     text-align: center;
-    width: 250px;
+    width: 60vw;
     outline: none;
 }
 
@@ -112,8 +113,8 @@ h1 {
 
 /* Botón de guardar */
 #save-btn {
-    padding: 12px 20px;
-    font-size: 20px;
+    padding: 3vw;
+    font-size: 4vw;
     font-weight: bold;
     color: white;
     background: #0044ff;
@@ -121,7 +122,7 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.1s, box-shadow 0.2s;
-    margin-left: 10px;
+    margin-left: 2vw;
 }
 
 #save-btn:active {
@@ -133,22 +134,22 @@ h1 {
 .input-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 2vw;
 }
 
 /* Icono de confirmación */
 #success-check {
     display: none;
-    font-size: 24px;
+    font-size: 5vw;
     color: #00ff00;
     font-weight: bold;
 }
 
 /* Botón "Mejora tus resultados aquí" */
 #retry-btn {
-    margin-top: 15px;
-    padding: 12px 25px;
-    font-size: 20px;
+    margin-top: 3vw;
+    padding: 3vw;
+    font-size: 4vw;
     font-weight: bold;
     background: #0044ff;
     color: white;
@@ -163,7 +164,48 @@ h1 {
     box-shadow: 0px 0px 10px #00aaff;
 }
 
+/* Pie de página */
+#footer-text {
+    font-size: 3vw;
+    margin-top: 5vw;
+    max-width: 90%;
+}
+
 /* Ocultar elementos */
 .hidden {
     display: none;
+}
+
+/* Media Query para pantallas grandes */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+    #instrucciones {
+        font-size: 18px;
+    }
+    #timer {
+        font-size: 48px;
+    }
+    #start-btn {
+        font-size: 24px;
+    }
+    .tap-btn {
+        width: 160px;
+        height: 160px;
+        font-size: 40px;
+    }
+    #player-name {
+        font-size: 20px;
+        width: 250px;
+    }
+    #save-btn {
+        font-size: 20px;
+    }
+    #retry-btn {
+        font-size: 20px;
+    }
+    #footer-text {
+        font-size: 14px;
+    }
 }
